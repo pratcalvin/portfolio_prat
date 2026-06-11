@@ -4,8 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="principal.css">
+    <meta name="description"
+        content="Calvin Prat — Étudiant développeur web, futur alternant BTS SIO SLAM. Projets en HTML/CSS/JS, Python, Blender.">
     <title>Calvin Prat — Développeur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="principal.css">
 </head>
 
 <body>
@@ -26,33 +33,36 @@
         <div id="btn">
             <button id="theme">🌙 Thème</button>
             <button id="lang">FR / EN</button>
-            <button id="contact-btn"><a href="#contact">Me contacter</a></button>
+            <a href="#contact" class="btn-contact" data-key="btn_contact">Me contacter</a>
         </div>
     </header>
 
-    <!-- HOME -->
+
     <section id="home">
         <div class="home-content">
+            <div class="home-badge" data-key="badge">Disponible — Alternance sept. 2026</div>
             <h1>
                 <span data-key="hero_hi">Salut, je suis</span>
                 <span id="cp">Calvin Prat</span>
-                <span data-key="hero_job">Futur Développeur Full Stack</span>
+
+                <span data-key="hero_job">Développeur web & scripting</span>
             </h1>
             <p data-key="hero_desc">
                 Passionné par le web, la 3D et l'IA — je construis des projets concrets depuis le lycée.
             </p>
-            <a href="#projects" class="home-cta">Voir mes projets →</a>
+            <div class="home-actions">
+                <a href="#projects" class="home-cta" data-key="cta_projects">Voir mes projets →</a>
+                <a href="https://github.com/pratcalvin" class="home-cta-ghost" target="_blank">GitHub ↗</a>
+            </div>
         </div>
-
         <div class="home-image">
             <img src="image/calvin.png" alt="Calvin Prat">
         </div>
     </section>
 
-    <!-- ABOUT -->
+
     <section id="about">
         <h2>Mon parcours & <span>ma vision</span></h2>
-
         <div class="about-container">
             <div class="about-sketch">
                 <iframe title="room" frameborder="0" allowfullscreen allow="autoplay; fullscreen; xr-spatial-tracking"
@@ -64,7 +74,6 @@
                     — apprentissage en autonomie
                 </p>
             </div>
-
             <div class="about-text">
                 <p>J'ai découvert le numérique en seconde via les cours de SNT, en apprenant HTML et CSS. Cette première
                     approche m'a conduit à réaliser de petits sites vitrines, en cherchant à les rendre de plus en plus
@@ -74,101 +83,217 @@
                     de résoudre des problèmes concrets.</p>
                 <p>Sur mon temps personnel, j'ai développé une curiosité pour la 3D — comment sont réalisées les
                     publicités et les objets 3D intégrés aux sites web. J'ai découvert Blender et me suis formé en
-                    autonomie via des tutoriels, en réalisant des studios virtuels et des animations.</p>
-                <p>Aujourd'hui en terminale, je cherche une formation qui me motive et dans laquelle je prends du
-                    plaisir. Quand je travaille sur un projet, je peux rester concentré des heures sans voir le temps
-                    passer — c'est la meilleure preuve de ma passion pour ce domaine.</p>
+                    autonomie via des tutoriels.</p>
+                <p>Aujourd'hui en terminale, je cherche une alternance pour développer une vraie polyvalence en
+                    développement : concevoir aussi bien des applications que des sites web, et construire des solutions
+                    utiles, concrètes et utilisées par de vrais clients.</p>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-        <p>Compétences</p>
-        <h2>Mes technologies</h2>
 
-        <div class="skills-container">
-            <div class="skill-column">
-                <p>Programmation</p>
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-                    alt="Python">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-                    alt="JavaScript">
-            </div>
-
-            <div class="skill-column">
-                <p>Langages <span id="html">HTML</span> & <span id="css">CSS</span></p>
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
-                    alt="HTML5">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
-                    alt="CSS3">
-            </div>
-
-            <div class="skill-column">
-                <p>Base de données</p>
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
-                    alt="MySQL">
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
     <section id="projects">
-        <h2>Mes Projets</h2>
 
+        <div class="projects-header">
+            <p class="section-eyebrow">Ce que je construis</p>
+            <h2>Projets & compétences</h2>
+            <p class="projects-subtitle">Des réalisations concrètes construites en autonomie, du frontend au scripting.
+            </p>
+        </div>
+
+        <div class="group-label">Projets réalisés</div>
         <div class="projects-container">
+
+
             <div class="project-column">
                 <img src="image/facture.PNG" alt="Générateur de factures">
                 <div class="project-info">
-                    <p>Générateur de factures</p>
-                    <span>Application web de création et téléchargement de factures PDF avec calcul automatique
-                        TVA/TTC.</span>
-                    <span class="project-tag">HTML · CSS · JavaScript · jsPDF</span>
+                    <p>Générateur de factures PDF</p>
+                    <span>Application web complète : gestion client, calcul TVA/TTC automatique, validation SIRET et
+                        export PDF en un clic.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">jsPDF</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://pratcalvin.github.io/generateur-factures/" target="_blank"
+                            class="project-btn">Voir
+                            le projet ↗</a>
+                        <a href="https://github.com/pratcalvin" target="_blank"
+                            class="project-btn project-btn--ghost">GitHub ↗</a>
+                    </div>
                 </div>
             </div>
 
             <div class="project-column">
                 <img src="image/todolist.PNG" alt="Todo List">
                 <div class="project-info">
-                    <p>Todo List</p>
-                    <span>Site web de Todo List avec localStorage</span>
-                    <span class="project-tag">HTML · CSS · JavaScript</span>
+                    <p>Application To-Do List</p>
+                    <span>Gestion de tâches avec ajout, suppression, modification et persistance des données via
+                        localStorage.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">localStorage</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://pratcalvin.github.io/Todo-List/" target="_blank" class="project-btn">Voir
+                            le projet ↗</a>
+                        <a href="https://github.com/pratcalvin" target="_blank"
+                            class="project-btn project-btn--ghost">GitHub ↗</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-column upcoming-project">
+            <div class="project-column project-coming">
                 <div class="project-card">
+                    <div class="coming-icon">⚡</div>
                     <p>Prochain projet</p>
                     <span>Générateur de QR code — en cours de développement</span>
                 </div>
             </div>
+
+        </div>
+
+        <div class="group-label group-label--spaced">Ce que je sais faire</div>
+        <div class="skillcards-grid">
+
+            <div class="skillcard">
+                <div class="skillcard-icon">🌐</div>
+                <div class="skillcard-body">
+                    <p>Sites web vitrines</p>
+                    <span>Intégration responsive avec HTML5, CSS3 (Flexbox, Grid), animations et optimisation SEO de
+                        base.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML5</span>
+                        <span class="project-tag">CSS3</span>
+                        <span class="project-tag">SEO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skillcard">
+                <div class="skillcard-icon">⚙️</div>
+                <div class="skillcard-body">
+                    <p>Scripts Python</p>
+                    <span>Automatisation de tâches, traitement de données, génération de fichiers et logique
+                        métier.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Automatisation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skillcard">
+                <div class="skillcard-icon">🗄️</div>
+                <div class="skillcard-body">
+                    <p>Bases de données</p>
+                    <span>Modélisation relationnelle et requêtes SQL : SELECT, JOIN, GROUP BY, INSERT, UPDATE.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">SQL</span>
+                        <span class="project-tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skillcard">
+                <div class="skillcard-icon">🎨</div>
+                <div class="skillcard-body">
+                    <p>Modélisation 3D</p>
+                    <span>Scènes et rendus réalistes sous Blender : maillages, matériaux PBR, éclairages et rendu
+                        Cycles.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">Blender</span>
+                        <span class="project-tag">Cycles</span>
+                        <span class="project-tag">PBR</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skillcard">
+                <div class="skillcard-icon">🔧</div>
+                <div class="skillcard-body">
+                    <p>Versioning & outils</p>
+                    <span>Git et GitHub pour le suivi de versions, la gestion de branches et la publication de
+                        projets.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">Git</span>
+                        <span class="project-tag">GitHub</span>
+                        <span class="project-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skillcard skillcard--coming">
+                <div class="skillcard-icon">🚀</div>
+                <div class="skillcard-body">
+                    <p>En apprentissage</p>
+                    <span>Découverte des APIs REST et du déploiement web. Prochaine étape : BTS SIO SLAM en
+                        alternance.</span>
+                    <div class="project-tags">
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">REST API</span>
+                        <span class="project-tag">À venir</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- CONTACT -->
+
     <section id="contact">
         <div class="contact-container">
             <h2>Me contacter</h2>
-            <div class="contact-info">
-                <h3>Calvin Prat</h3>
-                <div class="contact-row">
-                    <div class="icon">📍</div>
-                    <span>France</span>
+
+            <div class="contact-layout">
+
+                <div class="contact-info">
+                    <h3>Calvin Prat</h3>
+                    <div class="contact-row">
+                        <div class="icon">📍</div>
+                        <span>Bordeaux et alentours, France</span>
+                    </div>
+                    <div class="contact-row">
+                        <div class="icon">✉️</div>
+                        <a href="mailto:calvin.prat@icloud.com">calvin.prat@icloud.com</a>
+                    </div>
+                    <div class="contact-row">
+                        <div class="icon">💼</div>
+                        <a href="https://github.com/pratcalvin" target="_blank">github.com/pratcalvin</a>
+                    </div>
+                    <div class="contact-row">
+                        <div class="icon">🔗</div>
+                        <a href="https://www.linkedin.com/in/calvin-prat"
+                            target="_blank">linkedin.com/in/calvin-prat</a>
+                    </div>
                 </div>
-                <div class="contact-row">
-                    <div class="icon">✉️</div>
-                    <span>calvin.prat@icloud.com</span>
-                </div>
-                <div class="contact-row">
-                    <div class="icon">💼</div>
-                    <a href="https://github.com/pratcalvin" target="_blank"
-                        style="color: #00aeff; text-decoration:none;">github.com/pratcalvin</a>
-                </div>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="fname">Nom</label>
+                        <input type="text" id="fname" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="femail">Email</label>
+                        <input type="email" id="femail" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fmsg">Message</label>
+                        <textarea id="fmsg" rows="5" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Envoyer le message →</button>
+                    <p class="form-confirm" id="form-confirm">✅ Message envoyé ! Je vous réponds rapidement.</p>
+                </form>
+
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <span class="footer-copy">© 2025 Calvin Prat</span>
         <div class="socials">
@@ -176,7 +301,7 @@
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
                     alt="GitHub">
             </a>
-            <a href="https://www.linkedin.com/in/" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/calvin-prat" target="_blank" aria-label="LinkedIn">
                 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
             </a>
             <a href="mailto:calvin.prat@icloud.com" aria-label="Email">
@@ -186,44 +311,66 @@
     </footer>
 
     <script>
-        document.getElementById("theme").addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            document.getElementById("theme").textContent =
-                document.body.classList.contains("dark-mode") ? "🌙 Thème" : "☀️ Thème";
-        });
 
-        const btnLang = document.getElementById("lang");
-        let currentLang = "fr";
+        const themeBtn = document.getElementById("theme");
+        themeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            themeBtn.textContent = document.body.classList.contains("light-mode") ? "🌙 Thème" : "☀️ Thème";
+        });
 
         const translations = {
             fr: {
-                nav_home: "Accueil",
-                nav_about: "À propos",
-                nav_projects: "Projets",
-                nav_contact: "Contact",
-                hero_hi: "Salut, je suis",
-                hero_job: "Futur Développeur Full Stack",
-                hero_desc: "Passionné par le web, la 3D et l'IA — je construis des projets concrets depuis le lycée."
+                nav_home: "Accueil", nav_about: "À propos", nav_projects: "Projets", nav_contact: "Contact",
+                badge: "Disponible — Alternance sept. 2026",
+                hero_hi: "Salut, je suis", hero_job: "Développeur web & scripting",
+                hero_desc: "Passionné par le web, la 3D et l'IA — je construis des projets concrets depuis le lycée.",
+                cta_projects: "Voir mes projets →", btn_contact: "Me contacter"
             },
             en: {
-                nav_home: "Home",
-                nav_about: "About",
-                nav_projects: "Projects",
-                nav_contact: "Contact",
-                hero_hi: "Hi, I'm",
-                hero_job: "Future Full Stack Developer",
-                hero_desc: "Passionate about web, 3D and AI — I've been building real projects since high school."
+                nav_home: "Home", nav_about: "About", nav_projects: "Projects", nav_contact: "Contact",
+                badge: "Available — Apprenticeship Sept. 2026",
+                hero_hi: "Hi, I'm", hero_job: "Web developer & scripting",
+                hero_desc: "Passionate about web, 3D and AI — I've been building real projects since high school.",
+                cta_projects: "See my projects →", btn_contact: "Contact me"
             }
         };
-
-        btnLang.addEventListener("click", () => {
+        let currentLang = "fr";
+        document.getElementById("lang").addEventListener("click", () => {
             currentLang = currentLang === "fr" ? "en" : "fr";
             document.querySelectorAll("[data-key]").forEach(el => {
                 const key = el.dataset.key;
-                if (translations[currentLang][key]) {
-                    el.textContent = translations[currentLang][key];
-                }
+                if (translations[currentLang][key]) el.textContent = translations[currentLang][key];
             });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(".project-column, .skillcard, .about-text p").forEach(el => {
+            el.classList.add("reveal");
+            observer.observe(el);
+        });
+
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-links a");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+            navLinks.forEach(a => {
+                a.classList.remove("active");
+                if (a.getAttribute("href") === "#" + current) a.classList.add("active");
+            });
+        });
+
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nom = document.getElementById("fname").value;
+            const email = document.getElementById("femail").value;
+            const msg = document.getElementById("fmsg").value;
+            const mailto = `mailto:calvin.prat@icloud.com?subject=${encodeURIComponent("Contact portfolio — " + nom)}&body=${encodeURIComponent(msg + "\n\nExpéditeur : " + email)}`;
+            window.location.href = mailto;
+            document.getElementById("form-confirm").style.display = "block";
+            this.reset();
         });
     </script>
 
