@@ -4,375 +4,716 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Calvin Prat · JavaScript &amp; Node.js web developer">Calvin Prat · Développeur web JavaScript &amp; Node.js</title>
     <meta name="description"
-        content="Calvin Prat — Étudiant développeur web, futur alternant BTS SIO SLAM. Projets en HTML/CSS/JS, Python, Blender.">
-    <title>Calvin Prat — Développeur</title>
+        content="Calvin Prat, développeur web JavaScript &amp; Node.js : applications web concrètes, interfaces responsive et API REST. BTS SIO SLAM à My Digital School, en recherche d'alternance de 2 ans à Bordeaux."
+        data-en-content="Calvin Prat, JavaScript &amp; Node.js web developer: concrete web applications, responsive interfaces and REST APIs. BTS SIO SLAM at My Digital School, looking for a 2-year apprenticeship in Bordeaux.">
+    <meta name="author" content="Calvin Prat">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://pratcalvin.github.io/portfolio_prat/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://pratcalvin.github.io/portfolio_prat/">
+    <meta property="og:title" content="Calvin Prat · Développeur web JavaScript &amp; Node.js">
+    <meta property="og:description"
+        content="Je construis des applications web qui répondent à des besoins concrets : générateur de factures PDF, gestionnaire de tâches avec API REST. En recherche d'alternance à Bordeaux.">
+    <meta property="og:site_name" content="Calvin Prat — Portfolio">
+    <meta property="og:image" content="https://pratcalvin.github.io/portfolio_prat/images/photocalvin.jpg">
+    <meta property="og:image:width" content="680">
+    <meta property="og:image:height" content="680">
+    <meta property="og:image:alt" content="Portrait de Calvin Prat">
+    <meta name="twitter:card" content="summary">
+
+    <script>
+        // Appliqué avant l'affichage pour éviter un flash de thème
+        document.documentElement.classList.add("js");
+        try {
+            if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light";
+        } catch (e) { }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="principal.css">
+    <script src="script.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Calvin Prat",
+        "url": "https://pratcalvin.github.io/portfolio_prat/",
+        "image": "https://pratcalvin.github.io/portfolio_prat/images/photocalvin.jpg",
+        "jobTitle": "Développeur web",
+        "email": "mailto:calvin.prat@icloud.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Bordeaux", "addressCountry": "FR" },
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "My Digital School" },
+        "alumniOf": { "@type": "HighSchool", "name": "Lycée des Graves" },
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "Node.js", "Express", "SQL", "SQLite", "Python", "Git", "Blender"],
+        "knowsLanguage": ["fr", "en", "es"],
+        "sameAs": [
+            "https://github.com/pratcalvin",
+            "https://www.linkedin.com/in/calvin-prat",
+            "https://sketchfab.com/prat_calvin"
+        ]
+    }
+    </script>
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar">
+    <!-- Icônes SVG réutilisées via <use href="#..."> -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+        <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+        <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></symbol>
+        <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></symbol>
+        <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6M12 19h8"/></symbol>
+        <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6M18 9a9 9 0 0 1-9 9"/></symbol>
+        <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+        <symbol id="i-globe"viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+        <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 17h14M5 17a2 2 0 1 1-4 0v-5l2-5h18l2 5v5a2 2 0 1 1-4 0"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></symbol>
+        <symbol id="i-bolt"viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+        <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.4 20.5h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1zm1.8 13.1H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></symbol>
+    </svg>
+
+    <a href="#main" class="skip-link" data-en="Skip to content">Aller au contenu</a>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Navigation principale" data-en-aria-label="Main navigation">
             <a href="#home" class="logo">Calvin Prat</a>
-            <div class="nav-links">
-                <ul id="menu">
-                    <li><a href="#home" data-key="nav_home">Accueil</a></li>
-                    <li><a href="#about" data-key="nav_about">À propos</a></li>
-                    <li><a href="#projects" data-key="nav_projects">Projets</a></li>
-                    <li><a href="#contact" data-key="nav_contact">Contact</a></li>
-                </ul>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#about" data-en="About">À propos</a></li>
+                <li><a href="#projects" data-en="Projects">Projets</a></li>
+                <li><a href="#skills" data-en="Skills">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" id="theme-toggle" class="icon-btn" aria-label="Activer le thème clair">
+                    <svg class="icon theme-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+                    <svg class="icon theme-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+                </button>
+                <button type="button" id="lang-toggle" class="icon-btn" lang="en" aria-label="Switch to English"
+                    data-en="FR" data-en-aria-label="Passer en français">EN</button>
+                <a href="#contact" class="btn-contact" data-en="Contact me">Me contacter</a>
+                <button type="button" class="icon-btn nav-burger" aria-expanded="false" aria-controls="nav-menu"
+                    aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </nav>
-
-        <div id="btn">
-            <button id="theme">🌙 Thème</button>
-            <button id="lang">FR / EN</button>
-            <a href="#contact" class="btn-contact" data-key="btn_contact">Me contacter</a>
-        </div>
     </header>
 
+    <main id="main">
 
-    <section id="home">
-        <div class="home-content">
-            <div class="home-badge" data-key="badge">Disponible — Alternance sept. 2026</div>
-            <h1>
-                <span data-key="hero_hi">Salut, je suis</span>
-                <span id="cp">Calvin Prat</span>
-
-                <span data-key="hero_job">Développeur web & scripting</span>
-            </h1>
-            <p data-key="hero_desc">
-                Passionné par le web, la 3D et l'IA — je construis des projets concrets depuis le lycée.
-            </p>
-            <div class="home-actions">
-                <a href="#projects" class="home-cta" data-key="cta_projects">Voir mes projets →</a>
-                <a href="https://github.com/pratcalvin" class="home-cta-ghost" target="_blank">GitHub ↗</a>
-            </div>
-        </div>
-        <div class="home-image">
-            <img src="images/photocalvin.png" alt="Calvin Prat">
-        </div>
-    </section>
-
-
-    <section id="about">
-        <h2>Mon parcours & <span>ma vision</span></h2>
-        <div class="about-container">
-            <div class="about-sketch">
-                <iframe title="room" frameborder="0" allowfullscreen allow="autoplay; fullscreen; xr-spatial-tracking"
-                    src="https://sketchfab.com/models/d87344b70f38430fbfbac42477e3aadb/embed?autostart=1&ui_theme=dark">
-                </iframe>
-                <p class="about-sketch-credit">
-                    Modèle 3D réalisé sous
-                    <a href="https://sketchfab.com/prat_calvin" target="_blank">Blender</a>
-                    — apprentissage en autonomie
+        <section id="home" aria-labelledby="hero-title">
+            <div class="home-content">
+                <p class="home-badge" data-en="Open to apprenticeships — Web development · Bordeaux">Ouvert à l'alternance — Développement web · Bordeaux</p>
+                <h1 id="hero-title">
+                    <span data-en="Hello, I'm">Bonjour, je suis</span>
+                    <span id="cp">Calvin Prat</span>
+                    <span data-en="Web developer · JavaScript &amp;&nbsp;Node.js">Développeur web · JavaScript &amp;&nbsp;Node.js</span>
+                </h1>
+                <p class="home-desc"
+                    data-en="I build web applications that meet concrete needs: a PDF invoice generator for small businesses, a task manager with a REST API and a database. Responsive interfaces in HTML, CSS and JavaScript, and a first hands-on back-end experience with Node.js, Express and SQLite that I keep building on.">
+                    Je construis des applications web qui répondent à des besoins concrets : un générateur de
+                    factures PDF pour les petites entreprises, un gestionnaire de tâches avec API REST et base de
+                    données. Interfaces responsive en HTML, CSS et JavaScript, et une première expérience
+                    back-end concrète avec Node.js, Express et SQLite, sur laquelle je continue de progresser.
                 </p>
+                <div class="home-actions">
+                    <a href="#projects" class="home-cta" data-en="See my projects →">Voir mes projets →</a>
+                    <a href="https://github.com/pratcalvin" class="home-cta-ghost" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="cv/cv-calvin-prat.pdf" class="home-cta-ghost" target="_blank" rel="noopener">
+                        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                        <span data-en="My CV (PDF)">Mon CV (PDF)</span>
+                    </a>
+                </div>
+                <ul class="home-meta">
+                    <li>
+                        <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+                        <span data-en="Bordeaux area, France">Bordeaux et alentours</span>
+                    </li>
+                    <li>
+                        <svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>
+                        <span data-en="BTS SIO SLAM · My Digital School">BTS SIO SLAM · My Digital School</span>
+                    </li>
+                    <li>
+                        <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
+                        <span data-en="2-year apprenticeship, as soon as possible">Alternance 2 ans, dès que possible</span>
+                    </li>
+                </ul>
             </div>
-            <div class="about-text">
-                <p>J'ai découvert le numérique en seconde via les cours de SNT, en apprenant HTML et CSS. Cette première
-                    approche m'a conduit à réaliser de petits sites vitrines, en cherchant à les rendre de plus en plus
-                    esthétiques et structurés.</p>
-                <p>En première, mon intérêt s'est élargi vers les chatbots et leur fonctionnement, ce qui m'a
-                    naturellement amené vers l'intelligence artificielle et les applications web intelligentes capables
-                    de résoudre des problèmes concrets.</p>
-                <p>Sur mon temps personnel, j'ai développé une curiosité pour la 3D — comment sont réalisées les
-                    publicités et les objets 3D intégrés aux sites web. J'ai découvert Blender et me suis formé en
-                    autonomie via des tutoriels.</p>
-                <p>Aujourd'hui en terminale, je cherche une alternance pour développer une vraie polyvalence en
-                    développement : concevoir aussi bien des applications que des sites web, et construire des solutions
-                    utiles, concrètes et utilisées par de vrais clients.</p>
+            <div class="home-image">
+                <img src="images/photocalvin.jpg" alt="Portrait de Calvin Prat" data-en-alt="Portrait of Calvin Prat"
+                    width="340" height="340" fetchpriority="high">
             </div>
-        </div>
-    </section>
+        </section>
 
 
-    <section id="projects">
+        <section id="about" class="section section--alt" aria-labelledby="about-title">
+            <header class="section-header">
+                <p class="section-eyebrow" data-en="About">À propos</p>
+                <h2 id="about-title" data-en="From a need to <span>a live application</span>">Du besoin à <span>l'application en ligne</span></h2>
+            </header>
 
-        <div class="projects-header">
-            <p class="section-eyebrow">Ce que je construis</p>
-            <h2>Projets & compétences</h2>
-            <p class="projects-subtitle">Des réalisations concrètes construites en autonomie, du frontend au scripting.
-            </p>
-        </div>
-
-        <div class="group-label">Projets réalisés</div>
-        <div class="projects-container">
-
-
-            <div class="project-column">
-                <img src="images/facture.PNG" alt="Générateur de factures">
-                <div class="project-info">
-                    <p>Générateur de factures PDF</p>
-                    <span>Application web complète : gestion client, calcul TVA/TTC automatique, validation SIRET et
-                        export PDF en un clic.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">jsPDF</span>
+            <div class="about-container">
+                <div class="about-sketch">
+                    <div class="sketch-frame" id="sketch-frame">
+                        <img src="images/room-3d.jpg" alt="Aperçu d'une chambre modélisée en 3D sous Blender"
+                            data-en-alt="Preview of a bedroom modelled in 3D with Blender" width="720" height="405"
+                            loading="lazy">
+                        <button type="button" class="sketch-play" id="sketch-load">
+                            <span class="sketch-play-icon">
+                                <svg class="icon icon--fill" aria-hidden="true"><use href="#i-play"/></svg>
+                            </span>
+                            <span data-en="Load the interactive 3D model">Charger le modèle 3D interactif</span>
+                        </button>
                     </div>
-                    <div class="project-actions">
-                        <a href="https://pratcalvin.github.io/generateur-factures/login.html" target="_blank"
-                            class="project-btn">Voir
-                            le projet ↗</a>
-                        <a href="https://github.com/pratcalvin" target="_blank"
-                            class="project-btn project-btn--ghost">GitHub ↗</a>
-                    </div>
+                    <p class="about-sketch-credit"
+                        data-en="Alongside web development, I do 3D in Blender: this model is an experiment in embedding 3D in a web page — <a href=&quot;https://sketchfab.com/prat_calvin&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>see on Sketchfab ↗</a>">
+                        À côté du développement, je fais de la 3D sous Blender : ce modèle est une expérience pour
+                        intégrer de la 3D dans une page web —
+                        <a href="https://sketchfab.com/prat_calvin" target="_blank" rel="noopener">voir sur Sketchfab ↗</a>
+                    </p>
+                </div>
+
+                <div class="about-text">
+                    <p data-en="I've been coding since high school: first showcase websites in HTML and CSS, then applications in JavaScript, and now APIs with Node.js and Express.">
+                        Je code depuis le lycée : d'abord des sites vitrines en HTML et CSS, puis des applications
+                        en JavaScript, et aujourd'hui des API avec Node.js et Express.</p>
+                    <p data-en="I start from a specific need (issuing an invoice without software, keeping track of tasks) and first build a simple version that works. Then I improve it: data validation, responsive design, accessibility, and a real back-end once browser storage is no longer enough — exactly the path my to-do list took from v1 to v2. The invoice generator, version 1 of the to-do list and this portfolio are versioned on GitHub and published online, so you can try them directly.">
+                        Je pars d'un besoin précis (éditer une facture sans logiciel, suivre ses tâches) et je
+                        construis d'abord une version simple qui fonctionne. Ensuite je l'améliore : validation des
+                        données, responsive, accessibilité, puis un vrai back-end quand le stockage dans le
+                        navigateur ne suffit plus. C'est exactement le chemin de ma To-Do List, de la V1 à la V2.
+                        Le générateur de factures, la V1 de la To-Do List et ce portfolio sont versionnés sur GitHub
+                        et publiés en ligne : on peut les tester directement.</p>
+                    <p data-en="In a company, I can contribute to web interfaces and features: responsive integration, forms, data validation and communication with an API. I'm used to taking a project from start to finish on my own. What I'm looking for now is a team, projects people use every day, and code reviews.">
+                        En entreprise, je peux contribuer à des interfaces et fonctionnalités web : intégration
+                        responsive, formulaires, validation des données et échanges avec une API. J'ai l'habitude
+                        de mener un projet seul de bout en bout. Ce que je cherche maintenant, c'est une équipe, des
+                        projets utilisés au quotidien et des relectures de code.</p>
+                    <p data-en="I'm studying for a <strong>BTS SIO, SLAM option</strong> at <strong>My Digital School</strong> (2026 – 2028) and I'm looking for a <strong>2-year apprenticeship in web development</strong> in or near Bordeaux, starting as soon as possible. Rhythm: 1 week at school, 1 week at work.">
+                        Je suis en <strong>BTS SIO option SLAM</strong> à <strong>My Digital School</strong>
+                        (2026 – 2028) et je cherche une <strong>alternance de 2 ans en développement web</strong>, à
+                        Bordeaux ou aux alentours, dès que possible. Rythme : 1 semaine à l'école, 1 semaine en
+                        entreprise.</p>
                 </div>
             </div>
 
-            <div class="project-column">
-                <img src="images/todolist.PNG" alt="Todo List">
-                <div class="project-info">
-                    <p>Application To-Do List</p>
-                    <span>Gestion de tâches avec ajout, suppression, modification et persistance des données via
-                        localStorage.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">localStorage</span>
+            <ol class="timeline" aria-label="Étapes de mon parcours" data-en-aria-label="Steps of my journey">
+                <li class="done">
+                    <p class="timeline-step" data-en="2023 – 2024 · Year 10">2023 – 2024 · Seconde</p>
+                    <h3 data-en="First websites">Premiers sites</h3>
+                    <p data-en="HTML &amp; CSS in the SNT course">HTML et CSS en cours de SNT</p>
+                </li>
+                <li class="done">
+                    <p class="timeline-step" data-en="2024 – 2025 · Year 11">2024 – 2025 · Première</p>
+                    <h3 data-en="NSI course">Spécialité NSI</h3>
+                    <p data-en="Algorithms and Python">Algorithmique et Python</p>
+                </li>
+                <li class="done">
+                    <p class="timeline-step" data-en="2025 – 2026 · Year 12">2025 – 2026 · Terminale</p>
+                    <h3 data-en="General baccalauréat">Bac général</h3>
+                    <p data-en="Computer science (NSI) &amp; maths — Lycée des Graves">Spécialités NSI et maths — Lycée des Graves</p>
+                </li>
+                <li class="current">
+                    <p class="timeline-step" data-en="2026 – 2028">2026 – 2028</p>
+                    <h3>BTS SIO SLAM</h3>
+                    <p data-en="My Digital School — application development and databases">My Digital School — développement d'applications et bases de données</p>
+                </li>
+                <li>
+                    <p class="timeline-step" data-en="Next step">Prochaine étape</p>
+                    <h3 data-en="2-year apprenticeship">Alternance 2 ans</h3>
+                    <p data-en="Web development, as soon as possible · 1 week at school / 1 week at work">Développement web, dès que possible · 1 semaine école / 1 semaine entreprise</p>
+                </li>
+            </ol>
+        </section>
+
+
+        <section id="projects" class="section" aria-labelledby="projects-title">
+            <header class="section-header">
+                <p class="section-eyebrow" data-en="What I build">Ce que je construis</p>
+                <h2 id="projects-title" data-en="Featured <span>projects</span>">Projets <span>réalisés</span></h2>
+                <p class="section-subtitle"
+                    data-en="Websites built for clients, and web applications I designed and developed on my own — all live and testable online.">
+                    Des sites réalisés pour des clients et des applications web que j'ai conçues et développées
+                    seul, toutes en ligne et testables.</p>
+            </header>
+
+            <div class="projects-list">
+
+                <article class="project" aria-labelledby="p-clients">
+                    <div class="project-media">
+                        <div class="browser">
+                            <div class="browser-bar" aria-hidden="true">
+                                <span></span><span></span><span></span>
+                                <p>portfolioclientsprat.vercel.app</p>
+                            </div>
+                            <img src="images/sites-clients.jpg" width="1204" height="752" loading="lazy"
+                                alt="Aperçu du portfolio client : sites Master Boat Charter, Rosso Café et Saint-Médard Rugby Club"
+                                data-en-alt="Preview of the client portfolio: Master Boat Charter, Rosso Café and Saint-Médard Rugby Club websites">
+                        </div>
                     </div>
-                    <div class="project-actions">
-                        <a href="https://pratcalvin.github.io/Todo-List/" target="_blank" class="project-btn">Voir
-                            le projet ↗</a>
-                        <a href="https://github.com/pratcalvin" target="_blank"
-                            class="project-btn project-btn--ghost">GitHub ↗</a>
+                    <div class="project-body">
+                        <p class="project-kicker" data-en="Websites · Clients · 18 live sites">Sites web · Clients · 18 sites en ligne</p>
+                        <h3 id="p-clients" data-en="Client websites — Web projects">Sites clients — Réalisations web</h3>
+                        <p class="project-pitch"
+                            data-en="Building and optimising websites for clients, together with my brother: development, responsive design and, depending on the project, search engine optimisation to improve their visibility.">
+                            Création et optimisation de sites web pour des clients, réalisés en duo avec mon frère :
+                            développement, responsive et, selon les projets, référencement naturel pour améliorer leur
+                            visibilité sur les moteurs de recherche.</p>
+
+                        <div class="project-detail">
+                            <h4 data-en="The work">Les réalisations</h4>
+                            <p data-en="<strong>18 live sites</strong> for restaurants, craftsmen, shops, a rugby club, services and events, in France and abroad.">
+                                <strong>18 sites en ligne</strong> pour des restaurants, des artisans, des commerces, un
+                                club de rugby, des services et de l'événementiel, en France et à l'étranger.</p>
+                        </div>
+
+                        <div class="project-detail">
+                            <h4 data-en="What these sites include">Ce que ces sites comprennent</h4>
+                            <ul class="project-features">
+                                <li data-en="Responsive sites, tailored to each client's business and identity">
+                                    Des sites responsive, adaptés à l'activité et à l'identité de chaque client</li>
+                                <li data-en="Depending on the project, SEO work: titles and descriptions targeting the trade and the city, structured data, sitemap">
+                                    Selon les projets, un travail de référencement naturel : titres et descriptions
+                                    ciblés sur le métier et la ville, données structurées, sitemap</li>
+                                <li data-en="A visibility goal: being found by customers on search engines, not just being online">
+                                    Un objectif de visibilité : être trouvé par les clients sur les moteurs de
+                                    recherche, pas seulement être en ligne</li>
+                            </ul>
+                        </div>
+
+                        <ul class="project-tags" aria-label="Compétences" data-en-aria-label="Skills">
+                            <li data-en="Web development">Développement web</li>
+                            <li>Responsive</li>
+                            <li>SEO</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <a href="https://portfolioclientsprat.vercel.app/" target="_blank" rel="noopener"
+                                class="project-btn" data-en="See the client sites ↗"
+                                aria-label="Voir les sites clients sur le portfolio client (nouvel onglet)"
+                                data-en-aria-label="See the client sites on the client portfolio (new tab)">Voir les réalisations ↗</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project" aria-labelledby="p-invoice">
+                    <div class="project-media">
+                        <div class="browser">
+                            <div class="browser-bar" aria-hidden="true">
+                                <span></span><span></span><span></span>
+                                <p>pratcalvin.github.io/generateur-factures</p>
+                            </div>
+                            <img src="images/facture.PNG" width="1458" height="928" loading="lazy"
+                                alt="Formulaire de création de facture : client, articles et totaux HT, TVA et TTC"
+                                data-en-alt="Invoice form: customer, items and totals excl. tax, VAT and incl. tax">
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-kicker" data-en="Web application · Personal project">Application web · Projet personnel</p>
+                        <h3 id="p-invoice" data-en="PDF invoice generator">Générateur de factures PDF</h3>
+                        <p class="project-pitch"
+                            data-en="A web application that lets a small business fill in an invoice and download it as a PDF in a few clicks.">
+                            Application web qui permet à une petite entreprise de remplir une facture et de la
+                            télécharger en PDF en quelques clics.</p>
+
+                        <div class="project-detail">
+                            <h4 data-en="The need">Le besoin</h4>
+                            <p data-en="Quickly produce a clean, complete invoice — company details, SIRET number, item lines, VAT — without billing software.">
+                                Éditer rapidement une facture propre et complète — coordonnées, SIRET, lignes
+                                d'articles, TVA — sans logiciel de facturation.</p>
+                        </div>
+
+                        <div class="project-detail">
+                            <h4 data-en="What I built">Ce que j'ai développé</h4>
+                            <ul class="project-features">
+                                <li data-en="Simulated sign-up and login, with data stored in the browser (localStorage)">
+                                    Création de compte et connexion simulées, données stockées dans le navigateur
+                                    (localStorage)</li>
+                                <li data-en="Company profile with SIRET validation (14 digits)">
+                                    Profil entreprise avec contrôle du SIRET (14 chiffres)</li>
+                                <li data-en="Dynamic item lines with automatic totals: excl. tax, 20% VAT, incl. tax">
+                                    Lignes d'articles dynamiques et calcul automatique HT, TVA 20 % et TTC</li>
+                                <li data-en="Required-field checks and phone number validation with a regular expression">
+                                    Vérification des champs obligatoires et du téléphone par expression régulière</li>
+                                <li data-en="PDF generation with jsPDF and jsPDF-AutoTable">
+                                    Génération du PDF avec jsPDF et jsPDF-AutoTable</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-detail">
+                            <h4 data-en="What I learned">Ce que j'ai appris</h4>
+                            <p data-en="Validating user input (SIRET, phone number, required fields), generating a PDF in the browser, and designing an interface that meets a concrete need.">
+                                Valider les données saisies (SIRET, téléphone, champs obligatoires), générer un PDF
+                                dans le navigateur et concevoir une interface qui répond à un besoin concret.</p>
+                        </div>
+
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>localStorage</li>
+                            <li>jsPDF</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <a href="https://pratcalvin.github.io/generateur-factures/creer_compte.html" target="_blank"
+                                rel="noopener" class="project-btn" data-en="Try the demo ↗">Tester la démo ↗</a>
+                            <a href="https://github.com/pratcalvin/generateur-factures" target="_blank" rel="noopener"
+                                class="project-btn project-btn--ghost" data-en="Source code ↗"
+                                aria-label="Code source du générateur de factures sur GitHub"
+                                data-en-aria-label="Invoice generator source code on GitHub">Code source ↗</a>
+                        </div>
+                        <p class="project-note">
+                            <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+                            <span data-en="The demo starts by creating a test account: everything stays in your browser, nothing is sent.">
+                                La démo commence par la création d'un compte de test : tout reste dans votre
+                                navigateur, rien n'est envoyé.</span>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project" aria-labelledby="p-todo">
+                    <div class="project-media project-media--center">
+                        <div class="browser">
+                            <div class="browser-bar" aria-hidden="true">
+                                <span></span><span></span><span></span>
+                                <p>pratcalvin.github.io/Todo-List</p>
+                            </div>
+                            <img src="images/todolist.PNG" width="865" height="778" loading="lazy" class="is-centered is-zoomed"
+                                alt="Interface de la To-Do List : titre et champ d'ajout de tâche"
+                                data-en-alt="To-do list interface: title and task input field">
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-kicker" data-en="Web application · Personal project">Application web · Projet personnel</p>
+                        <h3 id="p-todo" data-en="To-do list app">Application To-Do List</h3>
+                        <p class="project-pitch"
+                            data-en="A task manager to add, edit and delete tasks, which are kept from one visit to the next.">
+                            Gestionnaire de tâches pour ajouter, modifier et supprimer ses tâches, conservées d'une
+                            visite à l'autre.</p>
+
+                        <div class="project-detail">
+                            <h4 data-en="The need">Le besoin</h4>
+                            <p data-en="Organise everyday tasks in a simple interface, with no account and nothing to install.">
+                                Organiser ses tâches du quotidien dans une interface simple, sans compte ni
+                                installation.</p>
+                        </div>
+
+                        <div class="project-detail">
+                            <h4 data-en="What I built">Ce que j'ai développé</h4>
+                            <ul class="project-features">
+                                <li data-en="Adding tasks, with empty input ignored">Ajout de tâches, avec contrôle des saisies vides</li>
+                                <li data-en="Editing and deleting tasks (with confirmation)">Modification et suppression des tâches (avec confirmation)</li>
+                                <li data-en="List rendered dynamically in JavaScript (DOM manipulation)">Affichage dynamique de la liste en JavaScript (manipulation du DOM)</li>
+                                <li data-en="Automatic save and reload with localStorage">Sauvegarde et rechargement automatiques via localStorage</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-detail">
+                            <h4 data-en="What I learned">Ce que j'ai appris</h4>
+                            <p data-en="Moving from an app that stores everything in the browser (localStorage) to an architecture with a back-end, a REST API and an SQLite database (version 2), and understanding better how the front-end and back-end talk to each other.">
+                                Passer d'une application qui stocke tout dans le navigateur (localStorage) à une
+                                architecture avec back-end, API REST et base SQLite (version 2), et mieux comprendre
+                                les échanges entre front-end et back-end.</p>
+                        </div>
+
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>localStorage</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <a href="https://pratcalvin.github.io/Todo-List/" target="_blank" rel="noopener"
+                                class="project-btn" data-en="Try the demo ↗">Tester la démo ↗</a>
+                            <a href="https://github.com/pratcalvin/Todo-List" target="_blank" rel="noopener"
+                                class="project-btn project-btn--ghost" data-en="Source code ↗"
+                                aria-label="Code source de la To-Do List sur GitHub"
+                                data-en-aria-label="To-do list source code on GitHub">Code source ↗</a>
+                        </div>
+
+                        <!--
+                            VERSION 2 (back-end) — quand elle sera publiée sur GitHub :
+                            1. remplacer l'encart .project-next par un bloc .project-detail listant les vraies fonctionnalités ;
+                            2. ajouter les tags Node.js, Express, API REST, SQLite dans la liste de technologies ;
+                            3. mettre à jour la capture, les liens de démo/code et la carte « Back-end » des compétences.
+                        -->
+                        <div class="project-next">
+                            <h4>
+                                <span data-en="Version 2: back-end">Version 2 : back-end</span>
+                                <span class="skill-status" data-en="In progress">En cours</span>
+                            </h4>
+                            <p data-en="A Node.js/Express server exposes a REST API to manage tasks (CRUD: fetch, add, update, delete), with dedicated routes for active tasks and history. Tasks are stored in an SQLite database. It's being finalised and isn't published yet: the demo and code above are version 1.">
+                                Un serveur Node.js/Express expose une API REST pour gérer les tâches (CRUD :
+                                récupération, ajout, modification, suppression), avec des routes dédiées aux tâches
+                                actives et à l'historique. Les tâches sont stockées dans une base SQLite. En cours de
+                                finalisation, pas encore publiée : la démo et le code ci-dessus correspondent à la
+                                version 1.</p>
+                            <ul class="project-tags" aria-label="Technologies de la version 2"
+                                data-en-aria-label="Version 2 technologies">
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>API REST</li>
+                                <li>SQLite</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="project-coming">
+                    <div class="skillcard-icon" aria-hidden="true">
+                        <svg class="icon"><use href="#i-bolt"/></svg>
+                    </div>
+                    <div>
+                        <p data-en="Next project">Prochain projet</p>
+                        <p data-en="QR code generator — coming soon">Générateur de QR code — à venir</p>
                     </div>
                 </div>
+
             </div>
-
-            <div class="project-column project-coming">
-                <div class="project-card">
-                    <div class="coming-icon">⚡</div>
-                    <p>Prochain projet</p>
-                    <span>Générateur de QR code — en cours de développement</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="group-label group-label--spaced">Ce que je sais faire</div>
-        <div class="skillcards-grid">
-
-            <div class="skillcard">
-                <div class="skillcard-icon">🌐</div>
-                <div class="skillcard-body">
-                    <p>Sites web vitrines</p>
-                    <span>Intégration responsive avec HTML5, CSS3 (Flexbox, Grid), animations et optimisation SEO de
-                        base.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML5</span>
-                        <span class="project-tag">CSS3</span>
-                        <span class="project-tag">SEO</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skillcard">
-                <div class="skillcard-icon">⚙️</div>
-                <div class="skillcard-body">
-                    <p>Scripts Python</p>
-                    <span>Automatisation de tâches, traitement de données, génération de fichiers et logique
-                        métier.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Automatisation</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skillcard">
-                <div class="skillcard-icon">🗄️</div>
-                <div class="skillcard-body">
-                    <p>Bases de données</p>
-                    <span>Modélisation relationnelle et requêtes SQL : SELECT, JOIN, GROUP BY, INSERT, UPDATE.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">SQL</span>
-                        <span class="project-tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skillcard">
-                <div class="skillcard-icon">🎨</div>
-                <div class="skillcard-body">
-                    <p>Modélisation 3D</p>
-                    <span>Scènes et rendus réalistes sous Blender : maillages, matériaux PBR, éclairages et rendu
-                        Cycles.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">Blender</span>
-                        <span class="project-tag">Cycles</span>
-                        <span class="project-tag">PBR</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skillcard">
-                <div class="skillcard-icon">🔧</div>
-                <div class="skillcard-body">
-                    <p>Versioning & outils</p>
-                    <span>Git et GitHub pour le suivi de versions, la gestion de branches et la publication de
-                        projets.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">Git</span>
-                        <span class="project-tag">GitHub</span>
-                        <span class="project-tag">VS Code</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skillcard skillcard--coming">
-                <div class="skillcard-icon">🚀</div>
-                <div class="skillcard-body">
-                    <p>En apprentissage</p>
-                    <span>Découverte des APIs REST et du déploiement web. Prochaine étape : BTS SIO SLAM en
-                        alternance.</span>
-                    <div class="project-tags">
-                        <span class="project-tag">Node.js</span>
-                        <span class="project-tag">REST API</span>
-                        <span class="project-tag">À venir</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
+        </section>
 
 
-    <section id="contact">
-        <div class="contact-container">
-            <h2>Me contacter</h2>
+        <section id="skills" class="section section--alt" aria-labelledby="skills-title">
+            <header class="section-header">
+                <p class="section-eyebrow" data-en="Skills">Compétences</p>
+                <h2 id="skills-title" data-en="What I can <span>build</span>">Ce que je sais <span>construire</span></h2>
+                <p class="section-subtitle"
+                    data-en="Each skill, tied to what I actually do with it.">
+                    Chaque compétence, reliée à ce que j'en fais concrètement.</p>
+            </header>
 
-            <div class="contact-layout">
+            <div class="skillcards-grid">
 
-                <div class="contact-info">
-                    <h3>Calvin Prat</h3>
-                    <div class="contact-row">
-                        <div class="icon">📍</div>
-                        <span>Bordeaux et alentours, France</span>
-                    </div>
-                    <div class="contact-row">
-                        <div class="icon">✉️</div>
-                        <a href="mailto:calvin.prat@icloud.com">calvin.prat@icloud.com</a>
-                    </div>
-                    <div class="contact-row">
-                        <div class="icon">💼</div>
-                        <a href="https://github.com/pratcalvin" target="_blank">github.com/pratcalvin</a>
-                    </div>
-                    <div class="contact-row">
-                        <div class="icon">🔗</div>
-                        <a href="https://www.linkedin.com/in/calvin-prat"
-                            target="_blank">linkedin.com/in/calvin-prat</a>
+                <div class="skillcard">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-code"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3 data-en="Web interfaces">Interfaces web</h3>
+                        <p data-en="Responsive, interactive interfaces: forms with validation, real-time calculations, dynamically generated content, data kept in the browser.">
+                            Des interfaces responsive et interactives : formulaires avec validation, calculs en temps
+                            réel, contenu généré dynamiquement, données conservées dans le navigateur.</p>
+                        <p class="project-kicker" data-en="Used in: invoice generator · to-do list · this portfolio">Utilisé dans : générateur de factures · To-Do List · ce portfolio</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>localStorage</li>
+                        </ul>
                     </div>
                 </div>
 
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="fname">Nom</label>
-                        <input type="text" id="fname" placeholder="Votre nom" required>
+                <div class="skillcard">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-server"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3 data-en="Back-end &amp; REST API">Back-end &amp; API REST</h3>
+                        <p data-en="An Express server exposing a REST API to create, read, update and delete tasks, with routes for active tasks and history.">
+                            Un serveur Express qui expose une API REST pour créer, lire, modifier et supprimer des
+                            tâches, avec des routes pour les tâches actives et l'historique.</p>
+                        <p class="project-kicker" data-en="Used in: to-do list v2 (being finalised, not published yet)">Utilisé dans : To-Do List V2 (en finalisation, pas encore publiée)</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>Node.js</li>
+                            <li>Express</li>
+                            <li>API REST</li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="femail">Email</label>
-                        <input type="email" id="femail" placeholder="votre@email.com" required>
+                </div>
+
+                <div class="skillcard">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-database"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3 data-en="Data storage">Stockage des données</h3>
+                        <p data-en="Storing and handling an application's data with SQL: the tasks of the to-do list v2 are kept in an SQLite database.">
+                            Enregistrer et manipuler les données d'une application en SQL : les tâches de la To-Do V2
+                            sont stockées dans une base SQLite.</p>
+                        <p class="project-kicker" data-en="Used in: to-do list v2">Utilisé dans : To-Do List V2</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>SQL</li>
+                            <li>SQLite</li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="fmsg">Message</label>
-                        <textarea id="fmsg" rows="5" placeholder="Votre message..." required></textarea>
+                </div>
+
+                <div class="skillcard">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-branch"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3 data-en="Versioning &amp; publishing">Versionnement &amp; mise en ligne</h3>
+                        <p data-en="My published projects are versioned with Git on the command line and GitHub, and put online with GitHub Pages: a demo anyone can try and open source code.">
+                            Mes projets publiés sont versionnés avec Git en ligne de commande et GitHub, et mis en
+                            ligne avec GitHub Pages : une démo accessible et le code source ouvert.</p>
+                        <p class="project-kicker" data-en="Used in: invoice generator · to-do list v1 · this portfolio">Utilisé dans : générateur de factures · To-Do List V1 · ce portfolio</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>GitHub Pages</li>
+                        </ul>
                     </div>
-                    <button type="submit" class="form-submit">Envoyer le message →</button>
-                    <p class="form-confirm" id="form-confirm">✅ Message envoyé ! Je vous réponds rapidement.</p>
-                </form>
+                </div>
+
+                <div class="skillcard">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3 data-en="SEO &amp; accessibility">SEO &amp; accessibilité</h3>
+                        <p data-en="Sites that can be found and used by everyone: semantic structure, meta tags and structured data, keyboard navigation, contrast, light/dark theme.">
+                            Des sites trouvables et utilisables par tous : structure sémantique, balises meta et
+                            données structurées, navigation au clavier, contrastes, thème clair/sombre.</p>
+                        <p class="project-kicker" data-en="Used in: this portfolio · client sites">Utilisé dans : ce portfolio · sites clients</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>SEO</li>
+                            <li data-en="Accessibility">Accessibilité</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skillcard">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-cube"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3>3D</h3>
+                        <p data-en="A complementary experience: modelling a scene and embedding it in a web page, like the model in the About section. Not my main field.">
+                            Une expérience complémentaire : modéliser une scène et l'intégrer dans une page web, comme
+                            le modèle de la section À propos. Pas mon domaine principal.</p>
+                        <p class="project-kicker" data-en="Used in: personal project">Utilisé dans : projet personnel</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>Blender</li>
+                            <li>Sketchfab</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skillcard skillcard--wide">
+                    <div class="skillcard-icon" aria-hidden="true"><svg class="icon"><use href="#i-terminal"/></svg></div>
+                    <div class="skillcard-body">
+                        <h3 data-en="Also">Aussi</h3>
+                        <p data-en="Python (algorithms, studied in the NSI course and in my BTS). Technical English, intermediate Spanish. VS Code every day.">
+                            Python (algorithmique, vu en NSI et en BTS). Anglais technique, espagnol intermédiaire.
+                            VS Code au quotidien.</p>
+                        <ul class="project-tags" aria-label="Autres compétences" data-en-aria-label="Other skills">
+                            <li>Python</li>
+                            <li data-en="English">Anglais</li>
+                            <li data-en="Spanish">Espagnol</li>
+                            <li>VS Code</li>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
-        </div>
-    </section>
+        </section>
+
+
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <div class="contact-container">
+                <header class="section-header">
+                    <p class="section-eyebrow">Contact</p>
+                    <h2 id="contact-title" data-en="Get in <span>touch</span>">Me <span>contacter</span></h2>
+                    <p class="section-subtitle"
+                        data-en="Looking for a web development apprentice in or near Bordeaux? I can start as soon as possible. Write to me or download my CV, I'll get back to you quickly.">
+                        Vous recherchez un alternant en développement web à Bordeaux ou aux alentours ? Je suis
+                        disponible dès que possible. Écrivez-moi ou téléchargez mon CV, je vous réponds rapidement.</p>
+                </header>
+
+                <div class="contact-layout">
+
+                    <div class="contact-info">
+                        <h3>Calvin Prat</h3>
+                        <p class="contact-role" data-en="Web developer · BTS SIO SLAM at My Digital School · Looking for a 2-year apprenticeship">
+                            Développeur web · BTS SIO SLAM à My Digital School · Recherche d'alternance 2 ans</p>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon"><use href="#i-pin"/></svg></div>
+                            <span data-en="Bordeaux area, France">Bordeaux et alentours, France</span>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+                            <span data-en="Rhythm: 1 week at school / 1 week at work">Rythme : 1 semaine école / 1 semaine entreprise</span>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon"><use href="#i-car"/></svg></div>
+                            <span data-en="A2 licence, own vehicle">Permis A2, véhiculé</span>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></div>
+                            <a href="mailto:calvin.prat@icloud.com">calvin.prat@icloud.com</a>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon icon--fill"><use href="#i-github"/></svg></div>
+                            <a href="https://github.com/pratcalvin" target="_blank" rel="noopener">github.com/pratcalvin</a>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon icon--fill"><use href="#i-linkedin"/></svg></div>
+                            <a href="https://www.linkedin.com/in/calvin-prat" target="_blank"
+                                rel="noopener">linkedin.com/in/calvin-prat</a>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon-box" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></div>
+                            <a href="cv/cv-calvin-prat.pdf" target="_blank" rel="noopener" data-en="My CV (PDF)">Mon CV (PDF)</a>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="fname" data-en="Name">Nom</label>
+                            <input type="text" id="fname" name="name" autocomplete="name" required
+                                placeholder="Votre nom" data-en-placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="femail">Email</label>
+                            <input type="email" id="femail" name="email" autocomplete="email" required
+                                placeholder="votre@email.com" data-en-placeholder="you@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="fmsg">Message</label>
+                            <textarea id="fmsg" name="message" rows="5" required placeholder="Votre message..."
+                                data-en-placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" data-en="Send message →">Envoyer le message →</button>
+                        <p class="form-hint" data-en="The button opens your email app with the message pre-filled.">
+                            Le bouton ouvre votre messagerie avec le message pré-rempli.</p>
+                        <p class="form-status" id="form-status" role="status" hidden
+                            data-en="Your email app should open. If it doesn't, write to me directly at <a href=&quot;mailto:calvin.prat@icloud.com&quot;>calvin.prat@icloud.com</a>.">
+                            Votre messagerie devrait s'ouvrir. Sinon, écrivez-moi directement à
+                            <a href="mailto:calvin.prat@icloud.com">calvin.prat@icloud.com</a>.</p>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="footer">
-        <span class="footer-copy">© 2025 Calvin Prat</span>
+        <p class="footer-copy">© <span id="year">2026</span> Calvin Prat · BTS SIO SLAM</p>
         <div class="socials">
-            <a href="https://github.com/pratcalvin" target="_blank" aria-label="GitHub">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
-                    alt="GitHub">
+            <a href="https://github.com/pratcalvin" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg class="icon icon--fill" aria-hidden="true"><use href="#i-github"/></svg>
             </a>
-            <a href="www.linkedin.com/in/calvin-prat" target="_blank" aria-label="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+            <a href="https://www.linkedin.com/in/calvin-prat" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg class="icon icon--fill" aria-hidden="true"><use href="#i-linkedin"/></svg>
             </a>
             <a href="mailto:calvin.prat@icloud.com" aria-label="Email">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/icloud.svg" alt="Email">
+                <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
             </a>
         </div>
     </footer>
-
-    <script>
-
-        const themeBtn = document.getElementById("theme");
-        themeBtn.addEventListener("click", () => {
-            document.body.classList.toggle("light-mode");
-            themeBtn.textContent = document.body.classList.contains("light-mode") ? "🌙 Thème" : "☀️ Thème";
-        });
-
-        const translations = {
-            fr: {
-                nav_home: "Accueil", nav_about: "À propos", nav_projects: "Projets", nav_contact: "Contact",
-                badge: "Disponible — Alternance sept. 2026",
-                hero_hi: "Salut, je suis", hero_job: "Développeur web & scripting",
-                hero_desc: "Passionné par le web, la 3D et l'IA — je construis des projets concrets depuis le lycée.",
-                cta_projects: "Voir mes projets →", btn_contact: "Me contacter"
-            },
-            en: {
-                nav_home: "Home", nav_about: "About", nav_projects: "Projects", nav_contact: "Contact",
-                badge: "Available — Apprenticeship Sept. 2026",
-                hero_hi: "Hi, I'm", hero_job: "Web developer & scripting",
-                hero_desc: "Passionate about web, 3D and AI — I've been building real projects since high school.",
-                cta_projects: "See my projects →", btn_contact: "Contact me"
-            }
-        };
-        let currentLang = "fr";
-        document.getElementById("lang").addEventListener("click", () => {
-            currentLang = currentLang === "fr" ? "en" : "fr";
-            document.querySelectorAll("[data-key]").forEach(el => {
-                const key = el.dataset.key;
-                if (translations[currentLang][key]) el.textContent = translations[currentLang][key];
-            });
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll(".project-column, .skillcard, .about-text p").forEach(el => {
-            el.classList.add("reveal");
-            observer.observe(el);
-        });
-
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-links a");
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-            navLinks.forEach(a => {
-                a.classList.remove("active");
-                if (a.getAttribute("href") === "#" + current) a.classList.add("active");
-            });
-        });
-
-        document.getElementById("contact-form").addEventListener("submit", function (e) {
-            e.preventDefault();
-            const nom = document.getElementById("fname").value;
-            const email = document.getElementById("femail").value;
-            const msg = document.getElementById("fmsg").value;
-            const mailto = `mailto:calvin.prat@icloud.com?subject=${encodeURIComponent("Contact portfolio — " + nom)}&body=${encodeURIComponent(msg + "\n\nExpéditeur : " + email)}`;
-            window.location.href = mailto;
-            document.getElementById("form-confirm").style.display = "block";
-            this.reset();
-        });
-    </script>
 
 </body>
 
